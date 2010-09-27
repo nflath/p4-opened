@@ -1,0 +1,53 @@
+p4-opened
+Author: Nathaniel Flath
+Email: flat0103@gmail.com
+
+-------------------
+--- DESCRIPTION ---
+-------------------
+
+p4-opened is a prettyprinter to use instead of the 'p4 opened' command.  While a
+p4 opened will output a file list like the below:
+
+//path/to/file.1#1 - edit default change (text)
+//path/to/file.2#4- edit default change (text)
+//path/to/file.3#1- edit default change (text)
+//path/to/file.4#3- edit change 305888 (text)
+//path/to/file.5#1- edit change 307394 (text)
+//path/to/file.6#60- edit change 305888 (text)
+//path/to/file.7#8- edit change 305888 (xtext)
+
+a4-opened  will display the following:
+
+--------------------------------------------------------------------------------
+Change 305888:
+
+        The description for this changelist will be printed here
+
+//path/to/file.4#3 - edit change 305888 (text)
+//path/to/file.6#60 - edit change 305888 (text)
+//path/to/file.7#8 - edit change 305888 (text)
+--------------------------------------------------------------------------------
+Change 307394:
+
+        This is another changelist, with one file.        
+
+//path/to/file.5#1 - edit change 307394 (text)
+--------------------------------------------------------------------------------
+Change change:
+
+        Default changelist.
+
+//path/to/file.1#1 - edit default change (text)
+//path/to/file.2#4 - edit default change (text)
+//path/to/file.3#1 - edit default change (text)
+--------------------------------------------------------------------------------
+
+As you can see, the opened files are grouped by changelist, with the changelist
+description given.
+
+
+--------------------
+--- Installation ---
+--------------------
+Copy p4-opened to /usr/bin, or another directory in your path.
