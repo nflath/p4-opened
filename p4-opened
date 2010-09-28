@@ -1,14 +1,14 @@
 #!/usr/bin/ruby
 
 sorted = `p4 opened | sort -k 5` #Groups the opened files by changelist
-current_changeno = 0
+current_chaangeno = 0
 sorted.each_line do |line|
   changeno = line.split[4]
   if changeno != current_changeno #New changelist found.  Output the header to be displayed
     puts '-'*80
     puts "Change " +  changeno + ":"
     if changeno != 'change'
-      match = /Description:$(.*)Files:$/m.match(`#{"a4 change -o " + changeno}`)
+      match = /Description:$(.*)Files:$/m.match(`#{"p4 change -o " + changeno}`)
       puts match[1]
     else #Print default changelist header.
       puts
